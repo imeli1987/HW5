@@ -1,39 +1,42 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 //Task 1
         System.out.println("Задача 1");
-        int clientOS = 0;
-        if (clientOS == 0)
-            System.out.println("Установите версию приложения для iOS по ссылке");
-        else if (clientOS == 1)
-            System.out.println("Установите версию приложения для Android по ссылке");
+//        Scanner scanner = new Scanner(System.in);
+//        int clientOS = scanner.nextInt();
+        int clientOS = 1;
+        String OS = "";
+        if (clientOS == 0) {
+            OS = "iOS";
+            System.out.printf("Установите версию приложения для %s по ссылке\n", OS);
+        }
+        if (clientOS == 1) {
+            OS = "Android";
+            System.out.printf("Установите версию приложения для %s по ссылке\n", OS);
+        }
 //Task 2
         System.out.println("Задача 2");
         int clientDeviceYear = 2015;
-        if (clientOS == 0) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для iOS по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для iOS по ссылке");
-            }
-        } else if (clientOS == 1) {
-            if (clientDeviceYear < 2015) {
-                System.out.println("Установите облегченную версию приложения для Android по ссылке");
-            } else {
-                System.out.println("Установите версию приложения для Android по ссылке");
-            }
+        boolean oldOS = clientDeviceYear < 2015;
+
+
+        if ( oldOS ){
+                System.out.printf("Установите облегченную версию приложения для %s по ссылке\n", OS);
+        } else {
+                System.out.printf("Установите версию приложения для %s по ссылке\n", OS);
         }
+
 //    Task 3
         System.out.println("Задача 3");
         int year = 2021;
-        if (year >= 1584) {
-            if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
-                System.out.printf("%d год является високосным\n", year);
-            } else {
-                System.out.printf("%d год не является високосным\n", year);
-            }
+        if (year <= 1584){
+            System.out.println("Год должен быть больше 1584");
+        } else if (((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) && (year >= 1584)) {
+            System.out.printf("%d год является високосным\n", year);
         } else {
-            System.out.println("Введите год больше 1584");
+            System.out.printf("%d год не является високосным\n", year);
         }
 //    Task 4
         System.out.println("Задача 4");
